@@ -1,0 +1,57 @@
+# LLM-as-a-Judge Prompts for Ralph Agentic Evaluation
+
+groundedness_judge:
+  system: |
+    You are an expert quantum verification judge in the Ralph Agentic Loop for Antigravity.
+    Your task is to evaluate whether EVERY factual claim made in the generated assistant response is strictly supported by the retrieved source context chunks.
+  prompt: |
+    RETRIEVED SOURCE CONTEXT:
+    {context}
+
+    GENERATED ASSISTANT ANSWER:
+    {answer}
+
+    Evaluate each claim made in the answer against the retrieved context.
+    Output your evaluation in valid JSON with keys:
+    - "score": float from 0.0 to 1.0 (1.0 = fully supported by context, 0.0 = completely hallucinated)
+    - "unsupported_claims": list of strings (any sentence or claim not supported by retrieved chunks)
+    - "citation_compliance": boolean (true if inline citations [Paper:...]/[Book:...]/[Doc:...] and Sources section are present)
+    - "rationale": brief explanation
+
+pedagogy_judge:
+  system: |
+    You are a distinguished quantum computing professor and educational researcher.
+    Evaluate the pedagogical quality, clarity, mathematical rigor, and scaffolding of the quantum explanation.
+  prompt: |
+    USER QUESTION:
+    {query}
+
+    ASSISTANT ANSWER:
+    {answer}
+
+    Evaluate the answer across:
+    1. Clarity & Structure (logical flow, intuitive explanations, definitions)
+    2. Mathematical Rigor (correct Dirac notation, unitary matrices, statevectors)
+    3. Scaffolding & Examples (helpful analogies, code/circuits, progressive difficulty)
+
+    Output valid JSON with keys:
+    - "clarity_score": float from 0.0 to 1.0
+    - "pedagogy_score": float from 0.0 to 1.0
+    - "has_equations_or_circuits": boolean
+    - "feedback": constructive notes for prompt optimization
+
+retrieval_relevance_judge:
+  system: |
+    You are a quantum information retrieval specialist.
+    Determine whether the retrieved chunks are relevant, sufficient, and non-redundant for answering the user's quantum query.
+  prompt: |
+    USER QUERY:
+    {query}
+
+    RETRIEVED CHUNKS:
+    {retrieved_chunks}
+
+    Output valid JSON with keys:
+    - "relevance_score": float from 0.0 to 1.0
+    - "coverage_sufficient": boolean
+    - "missing_topics": list of strings (quantum topics/theorems needed but missing)

@@ -1,0 +1,39 @@
+# Global QuantumScholar Configuration
+
+app:
+  name: "QuantumScholar"
+  version: "0.1.0"
+  description: "Citation-Grounded, Quantum-Only AI Platform"
+  environment: "development"
+  log_level: "INFO"
+
+paths:
+  data_raw_arxiv: "data/raw/arxiv_papers"
+  data_raw_books: "data/raw/books"
+  data_raw_docs: "data/raw/docs"
+  data_processed_chunks: "data/processed/chunks.jsonl"
+  data_processed_bm25: "data/processed/bm25_index"
+  data_processed_vector: "data/processed/vector_db"
+  eval_golden_dataset: "evaluation/datasets/quantum_qa_golden.jsonl"
+  eval_feedback_logs: "evaluation/datasets/user_feedback_logs.jsonl"
+  eval_reports_dir: "evaluation/reports"
+  system_prompt: "llm/prompts/system_quantumscholar.md"
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  reload: true
+  cors_origins: ["*"]
+
+ralph_loop:
+  enabled: true
+  auto_promote: true
+  min_eval_samples: 5
+  eval_interval_seconds: 3600
+  thresholds:
+    groundedness_min: 0.90
+    clarity_min: 0.85
+    pedagogy_min: 0.85
+    satisfaction_min: 4.5
+    ndcg_at_5_min: 0.80
+  experiment_traffic_pct: 0.15

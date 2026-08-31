@@ -1,0 +1,11 @@
+=== RETRIEVED QUANTUM KNOWLEDGE CONTEXT ===
+{context_chunks}
+
+=== USER QUESTION ===
+{query}
+
+=== INSTRUCTIONS ===
+1. Answer the question relying ONLY on the retrieved quantum knowledge chunks above.
+2. Follow the 4-part structure: Direct Answer, Explanation/Details, Citations (with final Sources section including URLs), Confidence & Gaps.
+3. Every factual sentence MUST contain an inline citation tag like [Paper: AuthorYear], [Book: AuthorYear], or [Doc: ProjectName].
+4. If the context does not contain enough information, state this explicitly. Do not hallucinate or use uncited outside assumptions.

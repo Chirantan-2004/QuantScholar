@@ -1,0 +1,43 @@
+# QuantumScholar RAG & Hybrid Retrieval Configuration
+
+chunking:
+  chunk_size_tokens: 512
+  chunk_overlap_tokens: 64
+  preserve_equations: true
+  preserve_citation_markers: true
+  metadata_fields:
+    - title
+    - authors
+    - year
+    - venue
+    - url
+    - arxiv_id
+    - doc_type # paper, book, doc
+
+sparse_retrieval:
+  algorithm: "bm25_okapi"
+  k1: 1.5
+  b: 0.75
+  top_k: 20
+
+dense_retrieval:
+  vector_store: "chroma" # chroma, qdrant, in_memory
+  distance_metric: "cosine"
+  top_k: 20
+
+fusion:
+  strategy: "reciprocal_rank_fusion" # Options: reciprocal_rank_fusion, weighted_score_fusion
+  rrf_k: 60
+  dense_weight: 0.65
+  sparse_weight: 0.35
+  final_top_k: 10
+
+reranking:
+  enabled: true
+  top_n: 5
+  min_relevance_score: 0.30
+
+groundedness_guard:
+  strict_citation_enforcement: true
+  reject_if_no_context: true
+  unsupported_threshold: 0.15 # Max 15% uncited statements allowed before flagging

@@ -1,0 +1,32 @@
+# Web Framework & API
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+pydantic>=2.6.0
+pydantic-settings>=2.2.0
+requests>=2.31.0
+httpx>=0.27.0
+
+# UI & Visualization
+streamlit>=1.32.0
+plotly>=5.20.0
+pandas>=2.2.0
+
+# Configuration & Utilities
+pyyaml>=6.0.1
+tqdm>=4.66.0
+python-dotenv>=1.0.1
+
+# Information Retrieval & Mathematics
+numpy>=1.26.0
+scipy>=1.12.0
+rank-bm25>=0.2.2
+
+# Quantum Computing SDKs (Optional / Supported)
+# qiskit>=1.0.0
+# qiskit-aer>=0.14.0
+# cirq>=1.3.0
+# pennylane>=0.35.0
+
+# Dense Embeddings & Vector Search (Optional / Supported)
+# sentence-transformers>=2.5.0
+# chromadb>=0.4.24

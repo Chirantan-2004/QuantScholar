@@ -1,0 +1,4 @@
+{"query_id": "log_001", "query": "How does Shor's algorithm find prime factors?", "rating": 5, "feedback_type": "thumbs_up", "user_comment": "Super clean citations and direct link to Shor 1994 paper.", "timestamp": "2026-08-31T20:15:00Z"}
+{"query_id": "log_002", "query": "What is the threshold for surface code?", "rating": 5, "feedback_type": "thumbs_up", "user_comment": "Accurately cited Fowler 2012 and 1% threshold.", "timestamp": "2026-08-31T20:30:00Z"}
+{"query_id": "log_003", "query": "Can QAOA run on NISQ hardware?", "rating": 4, "feedback_type": "thumbs_up", "user_comment": "Good explanation of Farhi 2014 ansatz.", "timestamp": "2026-08-31T21:00:00Z"}
+{"query_id": "log_004", "query": "Explain Grover diffusion operator matrix", "rating": 5, "feedback_type": "thumbs_up", "user_comment": "LaTeX equations and Dirac notation were spot on.", "timestamp": "2026-08-31T21:30:00Z"}

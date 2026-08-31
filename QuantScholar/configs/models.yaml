@@ -1,0 +1,59 @@
+# QuantumScholar Model Configurations (2026 Open-Source Stack)
+
+generation:
+  primary:
+    name: "Qwen/Qwen3-30B-Instruct"
+    provider: "vllm" # Options: vllm, ollama, huggingface, openai_compatible, mock
+    endpoint_url: "http://localhost:8000/v1"
+    api_key: "EMPTY"
+    context_window: 262144 # 256K context
+    max_output_tokens: 4096
+    temperature: 0.2
+    top_p: 0.95
+    license: "Apache 2.0"
+    description: "Top-tier reasoning, 256K context, excellent for RAG synthesis"
+  
+  alternative:
+    name: "meta-llama/Llama-3.1-70B-Instruct"
+    provider: "vllm"
+    endpoint_url: "http://localhost:8000/v1"
+    api_key: "EMPTY"
+    context_window: 131072
+    max_output_tokens: 4096
+    temperature: 0.2
+    top_p: 0.95
+    license: "Llama 3.1"
+    description: "Maximum general performance alternative"
+
+embedding:
+  primary:
+    name: "Qwen/Qwen3-Embedding-8B"
+    provider: "sentence_transformers" # Options: sentence_transformers, fastembed, api, mock
+    dimensions: 4096
+    max_seq_length: 32768
+    instruction_aware: true
+    query_instruction: "Instruct: Given a quantum computing question, retrieve relevant paper chunks that answer it.\nQuery: "
+    license: "Apache 2.0"
+  
+  alternative:
+    name: "BAAI/bge-m3"
+    provider: "sentence_transformers"
+    dimensions: 1024
+    max_seq_length: 8192
+    license: "MIT"
+
+reranker:
+  primary:
+    name: "Qwen/Qwen3-Reranker"
+    provider: "cross_encoder" # Options: cross_encoder, api, mock
+    top_n: 5
+    score_threshold: 0.35
+    license: "Apache 2.0"
+    description: "High precision reranking for quantum science & math"
+  
+  alternative:
+    name: "BAAI/bge-reranker-large"
+    provider: "cross_encoder"
+    top_n: 5
+    score_threshold: 0.30
+    license: "MIT"
